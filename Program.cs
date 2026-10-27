@@ -115,5 +115,31 @@ internal class Program
         bool isSubset = C.IsSubsetOf(A);
         Console.WriteLine(isSubset);
         #endregion
+        Console.WriteLine("==========================================");
+
+        #region 5th ex
+        Queue<string> printer = new Queue<string>();
+
+        printer.Enqueue("Report.pdf");
+        printer.Enqueue("Invoice.pdf");
+        printer.Enqueue("Letter.docx");
+        printer.Enqueue("Resume.pdf");
+        printer.Enqueue("Photo.jpg");
+
+        Console.WriteLine($"queue contents : {string.Join(", ",printer)}");
+        Console.WriteLine("--------------");
+
+        Console.WriteLine(printer.Peek());
+        Console.WriteLine("--------------");
+
+        while (printer.Count > 0)
+        {
+            Console.WriteLine($"printing:[{printer.Dequeue()}]");
+        }
+        Console.WriteLine("--------------");
+
+        bool tryDequeue = printer.TryDequeue(out string? doc);
+        Console.WriteLine($"Success? {tryDequeue}");
+        #endregion
     }
 }
