@@ -24,7 +24,7 @@ internal class Program
         #endregion
         Console.WriteLine("==========================================");
 
-        #region 2nd 
+        #region 2nd ex
         SortedDictionary<int,string> players = new SortedDictionary<int,string>();
         players.Add(500,"Ahmad");
         players.Add(200,"Sara");
@@ -51,5 +51,40 @@ internal class Program
             Console.WriteLine($"score:{p.Key} | player:{p.Value}");
         }
         #endregion
+        Console.WriteLine("==========================================");
+
+        #region 3rd ex
+        Dictionary<string, string> PhoneBook = new Dictionary<string, string>
+        {
+            { "Ahmed", "01011111111" },
+            { "Sara", "01122222222" },
+            { "Ali", "01233333333" },
+            { "Mona", "01544444444" }
+        };
+
+        PhoneBook["mazen"] = "01117249908";
+
+        try
+        {
+            PhoneBook.Add("Sara", "01122222222");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("this contact already exists");
+        }
+
+        bool adding = PhoneBook.TryAdd("Sara", "01122222222");
+        Console.WriteLine(adding);
+
+        Console.WriteLine(PhoneBook.ContainsKey("lara"));
+
+        Console.WriteLine(PhoneBook.GetValueOrDefault("lara","Not Found"));
+
+        Console.WriteLine($"keys are : {string.Join(", ", PhoneBook.Keys)}");
+        Console.WriteLine($"values are : {string.Join(", ", PhoneBook.Values)}");
+        #endregion
+        Console.WriteLine("==========================================");
+
+
     }
 }
