@@ -141,5 +141,32 @@ internal class Program
         bool tryDequeue = printer.TryDequeue(out string? doc);
         Console.WriteLine($"Success? {tryDequeue}");
         #endregion
+        Console.WriteLine("==========================================");
+
+        #region last ex
+        Stack<string> browse = new Stack<string>();
+
+        browse.Push("google.com");
+        browse.Push("github.com");
+        browse.Push("stackoverflow.com");
+        browse.Push("youtube.com");
+        browse.Push("claude.ai");
+
+        Console.WriteLine(browse.Peek());
+        Console.WriteLine("--------------");
+
+        Console.WriteLine(browse.Pop());
+        Console.WriteLine(browse.Pop());
+        Console.WriteLine(browse.Pop());
+        Console.WriteLine("--------------");
+
+        Console.WriteLine(browse.Peek());
+        Console.WriteLine("--------------");
+
+        Stack<string> empty = new Stack<string>();
+
+        bool success = empty.TryPop(out string? miss);
+        Console.WriteLine($"\nTried TryPop on empty stack. Success? {success}");
+        #endregion
     }
 }
